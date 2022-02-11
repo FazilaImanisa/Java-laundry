@@ -1,0 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package laundry;
+
+/**
+ *
+ * @author Zila
+ */
+public class ListClient extends List {
+    //pemberian nilai pada array "list" dengan tipe class "Client"
+    Client[] list = {
+        new Client(1, "Jila", "Malang", "0341", 50000),
+        new Client(2, "Rangga", "Surabaya", "031", 100000),
+        new Client(3, "Dono", "Purwokerto", "0331", 150000),
+    };
+    
+    // method untuk menampilkan data list client
+    @Override
+    public void viewData(){
+        System.out.println("--- List Client ---");
+        System.out.println("ID \t Nama \t Alamat \t Saldo");
+        for (int i = 0; i < list.length; i++){
+            System.out.println(list[i].getIdClient()+" \t"
+            +list[i].getNama()+ "\t"
+            +list[i].getAlamat()+ "\t"
+            +list[i].getSaldo());
+            
+        }
+    }
+    
+    public int cariClient (int id){
+        int foundIndex = 0;
+        //pencarian data berdasarkan id
+        for (int i = 0; i < list.length; i++){
+            
+            //jika id yang dicari ketemu
+            if(list[i].getIdClient()==id){
+                foundIndex = i; //menyimpan nilai index yang ditemukan
+            }
+        }
+        return foundIndex;
+    }
+}
